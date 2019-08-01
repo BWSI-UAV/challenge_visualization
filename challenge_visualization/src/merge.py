@@ -50,24 +50,36 @@ class Imagemerge:
 		pt1 = (180, 45 - self.upcycle)
 		pt2 = (210, 90 - self.upcycle)
 		pt3 = (150, 90 - self.upcycle)
-		p1 = (170, 90 - self.upcycle)
-		p2 = (190, 150 - self.upcycle)
-		triangle = np.array([pt1,pt2,pt3])
-		cv2.drawContours(self.master_image,[triangle],0,(255,0,0), -1)
-		cv2.rectangle(self.master_image,p1,p2, (255,0,0), -1)
+        	pt4 = (170, 90 - self.upcycle)
+        	pt5 = (190, 90 - self.upcycle)
+		pt6 = (165, 150 - self.upcycle)
+		pt7 = (195, 150 - self.upcycle)
+        	cv2.line(self.master_image,pt1,pt2, (255-self.upcycle,0,0), 4, cv2.LINE_AA)
+        	cv2.line(self.master_image,pt1,pt3, (255-self.upcycle,0,0), 4, cv2.LINE_AA)
+        	cv2.line(self.master_image,pt3,pt4, (255-self.upcycle,0,0), 4, cv2.LINE_AA)
+		cv2.line(self.master_image,pt5,pt2, (255-self.upcycle,0,0), 4, cv2.LINE_AA)
+		cv2.line(self.master_image,pt6,pt7, (255-self.upcycle,0,0), 4, cv2.LINE_AA)
+       		cv2.line(self.master_image,pt4,pt6, (255-self.upcycle,0,0), 4, cv2.LINE_AA)
+        	cv2.line(self.master_image,pt5,pt7, (255-self.upcycle,0,0), 4, cv2.LINE_AA)
 		self.upcycle = self.upcycle+1
 	if self.showup == True and self.upcycle>=30:
 		self.showup = False
 		self.upcycle = 0
 	if self.showdown == True and self.downcycle<30:
-		pt1= (180, 135 + self.downcycle)
+		pt1 =(180, 135 + self.downcycle)
 		pt2 =(210, 90 + self.downcycle)
 		pt3 =(150, 90 + self.downcycle)
-		p1 = (170, 30+self.downcycle)
-		p2= (190, 90+self.downcycle)
-		triangle = np.array([pt1,pt2,pt3])
-		cv2.drawContours(self.master_image,[triangle], 0, (255,0,0),-1)
-		cv2.rectangle(self.master_image,p1,p2, (255,0,0),-1)
+		pt4 = (165, 30+self.downcycle)
+        	pt5 = (195, 30+self.downcycle)
+		pt6= (190, 90+self.downcycle)
+        	pt7 = (170,90+self.downcycle)
+		cv2.line(self.master_image,pt1,pt2, (255-self.downcycle,0,0), 4, cv2.LINE_AA)
+        	cv2.line(self.master_image,pt1,pt3, (255-self.downcycle,0,0), 4, cv2.LINE_AA)
+       		cv2.line(self.master_image,pt2,pt6, (255-self.downcycle,0,0), 4, cv2.LINE_AA)
+        	cv2.line(self.master_image,pt3,pt7, (255-self.downcycle,0,0), 4, cv2.LINE_AA)
+        	cv2.line(self.master_image,pt5,pt6, (255-self.downcycle,0,0), 4, cv2.LINE_AA)
+        	cv2.line(self.master_image,pt4,pt7, (255-self.downcycle,0,0), 4, cv2.LINE_AA)
+        	cv2.line(self.master_image,pt4,pt5, (255-self.downcycle,0,0), 4, cv2.LINE_AA)
 		self.downcycle = self.downcycle+1
 	if self.showdown == True and self.downcycle>=30:
 		self.showdown = False
