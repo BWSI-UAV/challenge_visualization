@@ -1,18 +1,31 @@
-# challenge_visualization
+### challenge_visualization
+
+# NEW SETUP INSTRUCTIONS (August 3 5PM)
 
 Setup (only run once):
 
 ```
-# this may be installed on your drone already:
-$ sudo apt-get install ros-kinetic-web-video-server
+# STEP 1: get rid of this if you have installed it
+sudo apt-get remove ros-kinetic-web-video-server
 
-# clone this repo into your catkin workspace
-$ cd ~/bwsi-uav/catkin_ws/src/
-$ git clone https://github.com/BWSI-UAV/challenge_visualization
+# STEP 2 clone this repo into your catkin workspace
+# *****************************************************
+# ** NOTE: SKIP STEP 2 if you already have it cloned **
+# *****************************************************
+cd ~/bwsi-uav/catkin_ws/src/
+git clone https://github.com/BWSI-UAV/challenge_visualization
 
-# make catkin now that you have a new package
-$ cd ~/bwsi-uav/catkin_ws/src/
-$ catkin_make
+# STEP 3: update challenge_visualization
+cd ~/bwsi-uav/catkin_ws/src/challenge_visualization
+git pull
+
+# STEP 4: clone the latest version of web_video_server and build it
+cd ~/bwsi-uav/catkin_ws/src/
+git clone https://github.com/RobotWebTools/web_video_server
+
+# STEP 5: build the changes to your catkin_ws 
+cd ~/bwsi-uav/catkin_ws/
+catkin_make
 ```
 
 Add the following to your challenge launch file somewhere inside the <launch> tag
@@ -27,3 +40,5 @@ Add the following to your challenge launch file somewhere inside the <launch> ta
 After running your final challenge launch file with the added merge and web_video_server nodes open a web browser and navigate to http://teamname.beaver.works:8080
 
 Select the `visualiztion/converter` image topic in the browser.
+
+`Ctrl` + `+` will increase the video size
