@@ -42,3 +42,7 @@ After running your final challenge launch file with the added merge and web_vide
 Select the `visualiztion/converter` image topic in the browser.
 
 `Ctrl` + `+` will increase the video size
+
+# Critical Note:
+
+Only **one** team member should open the video feed in their browser - each open video feed takes 10%-20% of the available CPU. For the final challenge, we will have one feed open on large monitors for the audience to view.
